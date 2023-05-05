@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Cores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="main-container">
+    <header>
+      <h1>API CORES</h1>
+    </header>
+    <section class="control">
+      <input id="hexCodeInput" type="text" placeholder="Código HEX" />
+      <input id="colorNameInput" type="text" placeholder="Nome da cor" />
+      <input id="pKeyInput" type="number" placeholder="Chave Primária" inputmode="numeric" />
+      <div class="buttons">
+        <button id="newColorBtn">Nova cor</button>
+        <button id="changeColorBtn">Alterar cor</button>
+        <button id="deleteColorBtn">Deletar cor</button>
+      </div>
+    </section>
+    <section id="colors" class="colors"></section>
+  </div>
+</body>
+
+<script src="./script.js"></script>
+
+</html>
