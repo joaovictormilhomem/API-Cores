@@ -68,8 +68,15 @@ window.onload = function () {
       fetch('http://localhost:3003/api/colors')
         .then(res => res.json())
         .then(data => resolve(data.result))
-        .catch(err => resolve(err))
+        .catch(err => reject(err))
     })
+  }
+
+  function clearHexCode(hexCode) {
+    if (hexCode[0] === '#')
+      return hexCode.substring(1);
+    else
+      return hexCode;
   }
 
   async function start() {
@@ -81,11 +88,11 @@ window.onload = function () {
     const deleteColorBtn = document.getElementById('deleteColorBtn');
 
     newColorBtn.onclick = async () => {
-      const response = await createColor(hexCodeInput.value, colorNameInput.value);
+      const response = await createColor(clearHexCode(hexCodeInput.value), colorNameInput.value);
       response.error ? alert(response.error) : location.reload();
     };
     changeColorBtn.onclick = async () => {
-      const response = await updateColor(pKeyInput.value, hexCodeInput.value, colorNameInput.value);
+      const response = await updateColor(pKeyInput.value, clearHexCode(hexCodeInput.value), colorNameInput.value);
       response.error ? alert(response.error) : location.reload();
     };
     deleteColorBtn.onclick = async () => {
